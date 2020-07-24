@@ -1,0 +1,248 @@
+
+    <div ng-controller="dealdetcont">
+    <div class="container row">
+    <div class="col-xs-12">
+  
+    
+<h1 id="theading">Dealer Details</h1>
+<br/>
+  <div ng-hide="!flag1">
+        <div class="container">
+       <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="all" ng-change="showall()" ng-init="all=true">All
+    </label>
+        </div>
+    <div class="form-group form-group-sm row">
+     <div class="col-sm-2">
+          <select class="form-control input-sm " ng-model="fltr.oitem">
+                     <option></option>
+                    <!--<option>none</option>-->
+                    <option>201</option>
+                      <option>202</option>
+                      <option>203</option>
+                      <option>204</option>
+                      <option>205</option>
+                      <option>206</option>
+         </select>
+     </div>
+         <label class="col-sm-1 control-label">Item</label>
+        </div>
+    <div class="form-group form-group-sm row">
+     <div class="col-sm-2">
+        <select class="form-control input-sm" ng-model="fltr.status">
+             <!-- <option>none</option>-->
+            <option></option>
+              <option>pending</option>
+                <option>accepted</option>
+                  <option>negotiation</option>
+                  <option>rejected</option>
+                  <option>completed</option>
+                  <option>out for delivery</option>
+        </select>
+    </div>
+         <label class="col-sm-1 control-label">Status</label>
+        </div>
+        
+     <!-- product:{{productlist[0].negotiation}}-->
+ <!--          <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="exactmatch">exactmatch
+    </label>
+  </div>-->
+    </div>
+    <table class="table table-hover table-bordered" id="tab5"  >
+    <thead>
+    <tr>
+    <th>Date</th>
+        <th>Order-ID</th>
+         <th>Edit</th>
+        <th>Show more</th>
+    </tr>
+     </thead>
+        <tbody ng-repeat="p in plist">
+         <tr ng-repeat="order in p.orders|filter:fltr">
+            <td>{{order.odate}}</td>`
+            <td>{{order.ord_id}}</td>
+         <td><button class="btn btn-primary" data-target="#detailModal1" data-toggle="modal" ng-click="getproduct(order)">Edit</button></td>
+        <td ng-click="getproduct(order)"><button class="btn btn-primary"  data-target="#detailModal" data-toggle="modal">Show more</button></td>
+        </tr>
+        </tbody>
+     </table>
+</div>
+  <div>
+    <table class="table table-hover table-bordered" id="tab5" ng-hide="flag1" >
+    <thead>
+    <tr>
+    <th>Date</th>
+        <th>Order-ID</th>
+         <th>Edit</th>
+        <th>Show more</th>
+    </tr>
+     </thead>
+        <tbody ng-init="showproducts()">
+         <tr ng-repeat="order in ord track by $index|filter:fltr:exactmatch">
+            <td>{{order.odate}}</td>`
+            <td>{{order.ord_id}}</td>
+         <td><button class="btn btn-primary" data-target="#detailModal1" data-toggle="modal" ng-click="getproduct(order)"><span class="glyphicon glyphicon-pencil"></span></button></td>
+        <td><button class="btn btn-primary"  data-target="#detailModal" data-toggle="modal" ng-click="getproduct(order)">Show more</button></td>
+        </tr>
+        </tbody>
+     </table>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+<div class="modal fade" tabindex="-1" id="detailModal1"
+        data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+               <!-- <h4 class="modal-title">Login</h4>-->
+            </div>
+            <div class="modal-body" ng-controller="dealdetcont">
+                <table class="table table-hover table-bordered" id="tab">
+    
+            <tr> <th>Date</th>
+                 <th>Order-ID</th>
+                <th>Customer Name</th>
+                 <th>Quantity</th>
+                 </tr>
+            
+                <tr>
+                        <td><input class="form-control input-sm" type="date" ng-model="ordproducts.odate" ng-disabled="!neg"/></td>
+                   <td><input class="form-control input-sm" type="number" ng-model="ordproducts.ord_id" ng-disabled="!neg"/></td>
+                  <td><input class="form-control input-sm" type="text" ng-model="ordproducts.cust_nm" ng-disabled="!neg"/></td>
+                 <td><input class="form-control input-sm" type="number" ng-model="ordproducts.oqty" ng-disabled="!neg"/></td>
+                </tr>
+                   <tr>
+                <th>Price</th>
+                <th>Item</th>
+                <th>Control</th>
+                  <th>Grade Type</th>
+                    </tr>
+               
+                <tr>
+                 <td><input class="form-control input-sm" type="number" ng-model="ordproducts.oprice" ng-disabled="!neg"/></td>
+                 <td><select class="form-control input-sm"  ng-model="ordproducts.oitem" ng-disabled="!neg">
+                      <option>201</option>
+                      <option>202</option>
+                      <option>203option>
+                      <option>204</option>
+                      <option>205</option>
+                      <option>206</option>
+                     </select>
+                    </td>
+                <td><select class="form-control input-sm"  ng-model="ordproducts.control" ng-disabled="!neg">
+              <option>A</option>
+                <option>B</option>
+                  <option>C</option>
+              </select></td>
+               
+                <td><select class="form-control input-sm"  ng-model="ordproducts.ogtype" ng-disabled="!neg">
+              <option>A</option>
+                <option>B</option>
+                  <option>C</option>
+              </select>
+                </td>    
+                    </tr>
+                 <tr>
+                  <th>Status</th>
+                </tr>
+                <tr>
+                <td><select class="form-control input-sm"  ng-model="ordproducts.status" ng-disabled="!neg">
+              <option>pending</option>
+                <option>accepted</option>
+                  <option>negotiation</option>
+                  <option>rejected</option>
+                  <option>completed</option>
+                  <option>out for delivery</option>
+                  
+                  
+                  
+              </select></td>
+               <!-- <td><button class="btn btn-primary" ng-click="saveproduct()">Save</button></td>-->
+                </tr>
+                    </table>
+             <br/>
+                       <table class="table table-hover table-bordered" id="tab">
+                      <tr><th>Date</th>
+                                  <th>Offer</th>
+                                   <th>Price</th>
+                                   <th>Qty</th>
+                           </tr>
+                      <tr ng-repeat="ihis in ordproducts.itemhis">
+                      <td><input type="date" class="form-control input-sm" ng-model="ihis.dtime" ng-disabled="!neg"/></td>
+                      <td><input type="number" class="form-control input-sm" ng-model="ihis.offer" ng-disabled="!neg"/></td>
+                       <td><input type="number" class="form-control input-sm" ng-model="ihis.price" ng-disabled="!neg"/></td>
+                        <td><input type="number" class="form-control input-sm" ng-model="ihis.qty" ng-disabled="!neg"/></td>
+                      </tr>
+                      
+                    </table>
+                <div>
+                  <button class="btn btn-primary">Accept</button>
+                   <button class="btn btn-primary">Reject</button>
+                   <button class="btn btn-primary" ng-click="applyneg()">Negotiation</button>
+                    <button class="btn btn-primary" ng-click="addmore()">Add more</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div></div>
+    </div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+<div class="modal fade" tabindex="-1" id="detailModal"
+        data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+               <!-- <h4 class="modal-title">Login</h4>-->
+            </div>
+            <div class="modal-body" ng-controller="dealdetcont">
+                <table class="table table-hover table-bordered" id="tab">
+            <thead><tr><th>Customer Name</th>
+                 <th>Quantity</th>
+                <th>Price</th>
+                <th>Item</th>
+                <th>Control</th>
+                  <th>Grade Type</th>
+                  <th>Status</th>
+                </tr>
+                    </thead>
+                <tbody>
+                <tr>
+                <td>{{ordproducts.cust_nm}}</td>
+                 <td>{{ordproducts.oqty}}</td>
+                <td>{{ordproducts.oprice}}</td>
+                <td>{{ordproducts.oitem}}</td>
+                <td>{{ordproducts.control}}</td>
+                <td>{{ordproducts.ogtype}}</td>    
+                <td>{{ordproducts.status}}</td>
+                </tr>
+                    </tbody>
+                </table>
+          
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div></div>
+    </div>
+</div>
+</div>

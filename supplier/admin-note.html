@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>vegvendor.in</title>
+<meta charset="utf-8">
+  <meta name="viewport"content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+ <style>
+      #tab9{border-color:black;;}
+      #tab9 td{border-color:black;;}
+      #tab9 th{    background:#167F92;
+                 font-weight:bold;
+                 text-align:center;
+                 border-color:black;;
+                 color:white;
+               }
+     .table-hover tbody>tr{background-color:#EAF3F3;}
+     #note{color:white;
+           font-weight:bold;
+           background-color:#167F92;;
+           border-radius:10px;
+
+          
+          }
+     #note span{color:red;}
+    </style>
+    </head>
+    <body>
+    <div class="container-fluid">
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered" id="tab9">
+    <thead>
+    <tr>
+    <th>Date</th>
+     <th>Order-ID</th>
+         <th>Description</th>
+         <th>Total Amount</th>
+        <th>Status</th>
+    </tr>
+     </thead>
+        <tbody>
+        </tbody>
+     </table>
+</div>
+    </div>
+    <br/>
+ <div class="container">
+    <form>
+     <div class="form-group row">
+         <label class="col-sm-2 control-label">Order id:</label>
+    <div class="col-sm-3">
+    <input type="text" class="input-lg">
+  </div>
+    <label class="col-sm-2 col-sm-offset-1 control-label">Reciept:</label>
+     <div class="col-sm-3">
+    <input type="text" class="input-lg">
+  </div>
+        </div>
+    <br/>
+       <div class="form-group row">
+    <label class="col-sm-2 control-label">Order Details:</label>
+    <div class="col-sm-4">
+            <textarea class="input-lg"></textarea>
+  </div>
+    <div class="col-sm-3">
+       <input type="button" class="input-lg btn btn-primary" value="Change Time-slot">
+        </div>
+    <div class="col-sm-3">
+      <input type="button" class="input-lg btn btn-primary" value="Change Order/Edit Quantity">
+    </div>
+        </div>
+    </form>
+    </div>
+    <div class="container" id="note">
+    <h4><span>*</span>80% of advance payment</h4>
+    <h4><span>*</span>20% in 24 hrs of delievery</h4>
+        <h4><span>*</span>Finance charges per day after due date</h4>
+        </div>
+</body>
+</html>

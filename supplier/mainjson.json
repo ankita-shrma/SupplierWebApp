@@ -1,0 +1,34 @@
+[{"sup_id":101,
+   "name":"Ram",
+    "stock":[{
+              "stock_id":11000001,"date":"2017-07-02","item":201,"gtype":"A","tqty":1200,"minqty":1100,"lavail":100,"fprice":12,"agent":"C",
+              "negotiation":false,"orders":[{"ord_id":1101,"odate":"2017-07-05","cust_nm":"vegvendor1","oqty":100,"oprice":10,                                             "status":"pending","oitem":201,"control":"A","ogtype":"A",                                                                    "itemhis":[{"dtime":"2017-07-07","offer":11,"price":9,"qty":90},
+                                                          {"dtime":"2017-07-08","offer":11,"price":8,"qty":95}
+                                                         ]
+                                            },
+                                            {"ord_id":1102,"odate":"2017-07-09","cust_nm":"vegvendor2","oqty":200,"oprice":11,               "status":"accepted","oitem":201,"control":"B","ogtype":"A",                                      "itemhis":[{"dtime":"2017-07-19","offer":10,"price":8,"qty":80},
+                                                          {"dtime":"2017-07-20 09","offer":9,"price":7,"qty":85}
+                                                         ]
+                                            }
+                                           ]
+             
+          },
+          {
+            
+              "stock_id":11000002,"date":"2017-07-20","item":202,"gtype":"B","tqty":1300,"minqty":1100,"lavail":200,"fprice":22,"agent":"B",
+              "negotiation":false,"orders":[{"ord_id":1103,"odate":"2017-07-21","cust_nm":"vegvendor3","oqty":300,"oprice":17,                                             "status":"completed","oitem":202,"control":"A","ogtype":"B",                                                                    "itemhis":[{"dtime":"2017-07-22","offer":20,"price":18,"qty":190},
+                                                          {"dtime":"2017-07-23","offer":19,"price":18,"qty":195}
+                                                         ]
+                                            },
+                                            {"ord_id":1104,"odate":"2017-07-24","cust_nm":"vegvendor2","oqty":200,"oprice":22,               "status":"out for delivery","oitem":202,"control":"B","ogtype":"B",                                      "itemhis":[{"dtime":"2017-07-25","offer":21,"price":18,"qty":180},
+                                                          {"dtime":"2017-07-29","offer":20,"price":19,"qty":185}
+                                                         ]
+                                            }
+                                           ]
+             
+   
+              
+          }
+          ]
+}
+]

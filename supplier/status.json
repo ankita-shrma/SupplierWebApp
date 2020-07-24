@@ -1,0 +1,8 @@
+[{"orderid":1100,"customername":"vegvendor1","status":"pending"},
+ {"orderid":1101,"customername":"vegvendor2","status":"acceptance"},
+ {"orderid":1102,"customername":"vegvendor3","status":"negotiation"},
+ {"orderid":1103,"customername":"vegvendor4","status":"rejected"},
+ {"orderid":1104,"customername":"vegvendor5","status":"completed"},
+ {"orderid":1105,"customername":"vegvendor6","status":"out for delivery"}
+]
+ 
